@@ -1,6 +1,10 @@
 ARG NODE_VERSION=8
 FROM node:${NODE_VERSION}
 
+# Add dhclient
+RUN apt-get update && \
+    apt-get -y install isc-dhcp-client
+
 # Home directory for Node-RED application source code.
 RUN mkdir -p /usr/src/node-red
 
